@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+    {{ json_add['font'] | safe }}
+    {{ json_add['css'] | safe }} 
+    <style>
+    iframe {
+        position: absolute; 
+        height: calc(100% - 60px); 
+        top: 60px;
+        width: 100%;
+        left: 0%;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    body{
+        overflow-x: hidden; 
+    }
+    </style> 
+</head>
+<body>
+    <div class="menu">
+        <div>
+            <img class="logo" src="/static/img/1.png">
+            <p class="name">Sound_panel</p>
+        </div>
+    <div class="menu_section">
+        <div onclick="yhg('/mu_m', '#div_url_b1')" id="div_url_b1" class="section color_n"><p class="text_name_s">My sound</p></div>
+        <div onclick="yhg('/settings', '#div_url_b4')" id="div_url_b4" class="section color_n"><p class="text_name_s">Settings</p></div>
+        <div onclick="openModal('modal')" class="section section_2"><p class="text_name_s">Add sound</p></div>
+        <div onclick="openModal('modal1')" class="section section_2"><p class="text_name_s">Convert to wav</p></div>
+        <div onclick="Stop_sound()" class="section section_3"><p class="text_name_s">Stop sound</p></div>
+    </div>
+    </div>
+    <main class="main">
+        <iframe name="music" id="musx" src="" frameborder="0"></iframe>
+    </main>
+
+    <div id="modal">
+        <div class="modal-content1">
+            <span class="close" onclick="clos('modal')">&times;</span>
+            <p class="name_modal_vindow">Add sound</p>
+            <p>Add your music to the selection</p>
+            <br>
+            <p>To add your song here, fill in all the fields.</p>
+            <br>
+            <form class="form" id="myForm">
+                <label class="tetx_label" for="textInput">Enter the text:</label><br>
+                <input class="input_class" type="text" id="textInput" name="textInput">
+                <br><br>
+                
+                <label class="tetx_label" for="fileInput">Select a file waw format:</label><br>
+                <input class="input_class" type="file" id="fileInput" name="fileInput">
+                <br><br>
+                <input class="muttotn_sib" type="submit" value="Send">
+            </form>
+        </div>
+    </div>
+
+    <div id="modal1">
+        <div class="modal-content1">
+            <span class="close" onclick="clos('modal1')">&times;</span>
+            <p class="name_modal_vindow">Convert to wav</p>
+            <p>Convert a wav file</p>
+            <br><br>
+            <p>Convert mp3 to wav file:</p>
+            <br>
+            <form class="form" id="myForm1">
+                <label class="tetx_label" for="fileInput">Select a file:</label><br>
+                <input class="input_class" type="file" id="fileInput1" name="fileInput">
+                <br><br>
+                <input class="muttotn_sib" type="submit" value="Send">
+            </form>
+            <br>
+            <p>Convert mp4 to wav file:</p>
+            <br>
+            <form class="form" id="myForm2">
+                <label class="tetx_label" for="fileInput">Select a file:</label><br>
+                <input class="input_class" type="file" id="fileInput2" name="fileInput">
+                <br><br>
+                <input class="muttotn_sib" type="submit" value="Send">
+            </form>
+        </div>
+    </div>
+
+<div id="popup-container">
+    <p class="idfghjb"></p>
+</div>
+<script src="/static/js/url.js"></script>
+<script src="/static/js/global.js"></script>
+<script src="/static/js/funcrion.js"></script>
+</body>
+</html>
+<script>
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData();
+        formData.append('textInput', document.getElementById('textInput').value);
+        formData.append('fileInput', document.getElementById('fileInput').files[0]);
+
+        fetch('/add_sound', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+        location.reload();
+    });
+
+
+    document.getElementById('myForm1').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const formData = new FormData();
+    formData.append('fileInput', document.getElementById('fileInput1').files[0]);
+
+    fetch('/convert_mp3', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.blob())
+    .then(blob => { 
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'converted_audio.wav';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+
+document.getElementById('myForm2').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const formData = new FormData();
+    formData.append('fileInput', document.getElementById('fileInput2').files[0]);
+
+    fetch('/convert_mp4', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'converted_audio.wav';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+
+
+window.addEventListener('message', function(event) {
+if (event.data === 'delet_music') {
+    $('.idfghjb').text("The music has been removed.");
+    togglePopup();
+    var iframe = document.getElementById("musx");
+    iframe.src = iframe.src;
+}
+else if (event.data === 'Type_0') {
+    $('.idfghjb').text("The type has been changed. 0");
+    togglePopup();
+    var iframe = document.getElementById("musx");
+    iframe.src = iframe.src;
+}
+else if (event.data === 'Type_1') {
+    $('.idfghjb').text("The type has been changed. 1");
+    togglePopup();
+    var iframe = document.getElementById("musx");
+    iframe.src = iframe.src;
+}
+else if (event.data === 'plays') {
+    $('.idfghjb').text("The music plays");
+    togglePopup();
+}
+});
+</script>
+
+{{ json_add['live_app'] | safe }}
+
+
+<script>
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'F5' || (event.ctrlKey && event.key === 'r')) {
+            event.preventDefault();
+        }
+    });
+</script>

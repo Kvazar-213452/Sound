@@ -1,0 +1,478 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+body{
+    background-color: #17181f;
+    font-family: "Pixelify Sans", sans-serif;
+    color: #ffffffd4;
+}
+
+.logo{
+    filter: invert(100%);
+    height: 30px;
+    float: left;
+    margin-left: 10px;
+    top: 11px;
+    position: relative;
+}
+
+.main_text_p,
+.text_name_s,
+.name,
+.name_modal_vindow,
+.develop{
+    font-weight: bold;
+}
+
+.menu{
+    height: 60px;
+    width: 100%;
+    background-color: #14141b;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    z-index: 0;
+}
+
+.name{
+    position: relative;
+    left: 10px;
+    top: -1px;
+    font-size: 19px;
+    color: #78ffb0;
+    float: left;
+    margin-left: 30px;
+    left: -23px;
+}
+
+.section{
+    position: relative;
+    float: left;
+    margin-left: 15px;
+    top: 1px;
+    font-size: 17px !important;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.section:hover{
+    color: #ff7741;
+}
+
+.color_a{
+    color: #78ffb0;
+}
+
+body::-webkit-scrollbar-thumb {background-color: #3a3b42; }
+
+body::-webkit-scrollbar-track {background-color: #27282d;}
+
+body::-webkit-scrollbar {
+    width: 13px; 
+}
+
+.json_div_my_pack{
+    position: relative;
+    margin-top: 15px;
+    margin-left: 15px;
+    background-color: #1e202f;
+    height: 90px;
+    width: 200px;
+    border-radius: 5px;
+    float: left;
+}
+
+.game_name{
+    position: relative;
+    left: 10px;
+}
+
+.button_my_pack{
+    position: relative;
+    top: -5px;
+    border: none;
+    border-radius: 5px;
+    border: solid 2px #ffffff00;
+    padding: 7px;
+    background-color: #1c1d2c;
+    font-size: 15px;
+    transition: all 0.5s;
+    margin-left: 10px;
+}
+
+.button_my_pack:hover{
+    border: solid 2px #78ffb0; 
+}
+
+button{
+    color: #ffffffd4;
+    font-family: "Pixelify Sans", sans-serif;
+    cursor: pointer;
+}
+
+.red_border:hover{
+    border: solid 2px #ff7878; 
+}
+
+#modal,
+#modal1,
+#modal2,
+#modal3,
+#modal4,
+#modal5,
+#modal6,
+#modal7,
+#modal8,
+#modal9,
+#modal10,
+#modal11,
+#modal12,
+#modal13,
+#modal14,
+#modal15,
+#modal16,
+#modal17  {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  height: 70%;
+  overflow-y: hidden; 
+  overflow-x: hidden;
+  background-color: #14141b;
+  padding: 10px;
+}
+
+.modal-content1 p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    cursor: pointer;
+    transition: all 0.5s;
+    position: fixed;
+    top: 0;
+    right: 5px;
+    z-index: 100000000000;
+}
+
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.eror{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background-color: #1e1e27;
+    padding: 10px;
+}
+
+.develop{
+    position: relative;
+    text-align: center;
+    font-size: 23px;
+    color: #ff7878;
+}
+
+.color_red{
+    color: #ff7878;
+}
+
+.div_bloak_stings{
+    position: relative;
+    width: 80%;
+    background-color: #14141b;
+    left: 10px;
+    padding: 10px;
+}
+
+.main_text_p{
+    color: #78ffb0;
+    font-size: 20px;
+}
+
+.button_clor{
+    position: relative;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 7px;
+    background-color: #21212c;
+    font-size: 16px;
+    transition: all 0.5s;
+    margin-bottom: 10px;
+}
+
+.button_clor:hover{
+    background-color: #78ffb0;
+    color: #000000;
+}
+
+.version{
+    font-size: 18px;
+    background-color: #1e1e28;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.name_modal_vindow{
+    font-size: 21px;
+    color: #78ffb0;
+}
+
+.input_class{
+    border: none;
+    background-color: #17171f;
+    padding: 5px;
+    color: #ffffffd4;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+input:focus{
+    outline: none;
+}
+
+input{
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+.tetx_label{
+    font-size: 17px;
+}
+
+.muttotn_sib{
+    border: none;
+    border-radius: 5px;
+    background-color: #15151d;
+    color: #78ffb0;
+    transition: all 0.5s;
+    cursor: pointer;
+    padding: 7px;
+    font-size: 16px;
+}
+
+.muttotn_sib:hover{
+    background-color: #78ffb0;
+    color: #1d1d28;
+}
+
+#popup-container {
+    display: none;
+    position: fixed;
+    top: -400px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1e1e28;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: top 0.5s ease-in-out;
+    z-index: 1000000;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+.type_a{
+    background-color: #78ffb0;
+    color: #000000;
+}
+
+.section_3:hover{
+    color: #ff7878 !important;
+}
+
+.form{
+    position: relative;
+    padding: 10px;
+    background-color: #1e1e28;
+}
+
+.install{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    background-color: #14141b;
+    height: 80%;
+    overflow-y: auto; 
+}
+
+.install::-webkit-scrollbar-thumb {background-color: #3a3b42; }
+
+.install::-webkit-scrollbar-track {background-color: #27282d;}
+
+.install::-webkit-scrollbar {
+    width: 13px; 
+}
+
+.img_logo_install{
+    height: 150px;
+    filter: invert(80%); 
+}
+
+.p_install{
+    font-size: 30px;
+    position: relative;
+    left: -25px;
+    transition: all 0.5s;
+}
+
+.div_install{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+}
+
+#install_type{
+    position: relative;
+    float: right;
+    font-size: 20px;
+    top: calc(100% - 20px);
+    left: -1px;
+    color: #ff7878;
+}
+
+.p_indtall_2{
+    color: #78ffb0;
+    font-size: 25px;
+}
+
+.padding{
+    padding: 20px;
+}
+
+.button_install{
+    border: none;
+    padding: 6px;
+    position: relative;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #222230;
+    border: solid 2px #78ffb000;
+    transition: all 0.5s;
+}
+
+.button_install:hover{
+    border: solid 2px #78ffb0;
+    color: #78ffb0;
+}
+
+.disvase{
+    background-color: #1e1e27;
+    padding: 5px;
+}
+
+.divase_o{
+    position: relative;
+    margin-top: 10px;
+}
+
+.color_gren{
+    color: #78ffb0;
+}
+
+.fon_size91{
+    font-size: 17px;
+}
+
+#audioPlayer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    left: 0%;
+    height: 60px;
+    background-color: #1c1c26;
+    padding-bottom: 10px;
+}
+
+#audioPlayer::-webkit-media-controls-panel {
+    background-color: #1c1c26;
+    border-radius: 100px;
+}
+
+#audioPlayer::-webkit-media-controls-enclosure {
+    background-color: #1c1c26;
+    border: 2px solid #1c1c26;
+    border-radius: 10px;
+}
+
+#audioPlayer::-moz-media-controls-panel {
+    background-color: #1c1c26;
+    border-radius: 100px;
+}
+
+#audioPlayer::-moz-media-controls-enclosure {
+    background-color: #1c1c26;
+    border: 2px solid #1c1c26;
+    border-radius: 10px;
+}
+
+#audioPlayer::-ms-media-controls-panel {
+    background-color: #1c1c26;
+    border-radius: 100px;
+}
+
+#audioPlayer::-ms-media-controls-enclosure {
+    background-color: #1c1c26;
+    border: 2px solid #1c1c26;
+    border-radius: 10px;
+}
+
+#audioPlayer::-webkit-media-controls-play-button,
+#audioPlayer::-webkit-media-controls-pause-button {
+    background-color: #323243; 
+    border-radius: 50%; 
+}
+
+#audioPlayer::-webkit-media-controls-mute-button {
+    background-color: #252532; 
+    border-radius: 50%; 
+    position: relative;
+    left: 7px;
+    z-index: 100;
+}
+
+#audioPlayer::-webkit-media-controls-current-time-display {
+    color: #78ffb0;
+    font-weight: bold;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+#audioPlayer::-webkit-media-controls-time-remaining-display {
+    color: #ff7741; 
+    font-weight: bold;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+#audioPlayer::-webkit-media-controls-timeline {
+    background-color: #252532; 
+    height: 4px; 
+    border-radius: 5px; 
+    position: relative;
+    left: 5px;
+    z-index: 10;
+}

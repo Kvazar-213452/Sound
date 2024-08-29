@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+    {{ json_add['font'] | safe }}
+    {{ json_add['css'] | safe }}
+</head>
+<style>
+    p{
+margin: 0px;
+padding: 0px;
+}
+</style>
+<body>
+<div class="install padding">
+    <p class="p_indtall_2">Dependencies</p>
+    <br>
+    <p>You need to install the dependency <span class="color_red">[virtual microphone]</span> without this dependency the program will not work. it is necessary for its correct work.</p>
+    <br>
+    <button class="button_install" onclick="fff()">Download</button>
+</div>
+</body>
+<script>
+let yyy = 0;
+function fff() {
+    if (yyy === 0) {
+        $('.button_install').text("Next");
+    yyy = 1;
+    fetch('/end_install', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ data: 1 }) 
+    })
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+    }
+    else if (yyy === 1) {
+        fetch('/app_json_1', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ data: 1 }) 
+        })
+        .then(response => response.text())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+        window.location.href = '/instal_end';
+    }
+}
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+    {{ json_add['font'] | safe }}
+    {{ json_add['css'] | safe }}
+</head>
+<style>
+    p{
+margin: 0px;
+padding: 0px;
+}
+</style>
+<body>
+<div class="install">
+    <div class="div_install">
+        <img class="img_logo_install" src="/static/img/1.png">
+        <p class="p_install">Sound_panel</p>
+    </div>
+    <p id="install_type">Helo</p>
+</div>
+</body>
+</html>
+<script>
+var currentColor = 0; 
+let hhhhh = 1;
+setInterval(changeColor, 1000);
+setInterval(lox, 1500);
+setTimeout(redirectToPage, 8000);
+
+
+function changeColor() {
+    var element = document.querySelector('.p_install'); 
+    if (currentColor === 1) {
+        element.style.color = '#ffffffd4';
+        currentColor = 0;
+    } else {
+        currentColor = 1; 
+        element.style.color = '#78ffb0';
+    }
+}
+
+function lox() {
+    if (hhhhh === 1) {
+        $('#install_type').text("Download");
+        hhhhh = 2;
+    }
+    else if (hhhhh === 2) {
+        $('#install_type').text("ARTICLE!");
+        hhhhh = 3;
+    }
+    else if (hhhhh === 3) {
+        $('#install_type').text("delet bios");
+        hhhhh = 4;
+    }
+    else if (hhhhh === 4) {
+        $('#install_type').text("delet bios");
+        hhhhh = 5;
+    }
+    else if (hhhhh === 5) {
+        $('#install_type').text("sin.os.corect(\"null\")");
+        hhhhh = 1;
+    }
+}
+
+function redirectToPage() {
+    window.location.href = '/instal_dependens';
+}
+</script>

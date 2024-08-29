@@ -1,0 +1,5 @@
+name = Sound_panel
+window_h = 800
+window_w = 1000
+html = "<style>iframe{position: fixed;height: 100%;width: 100%;top: 0%;left: 0%;}</style><iframe src="http://127.0.0.1:62506/" frameborder="0"></iframe>"
+    

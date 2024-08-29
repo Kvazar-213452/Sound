@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {{ json_add['font'] | safe }}
+    {{ json_add['css'] | safe }}
+    <style>
+        p{
+    margin: 0px;
+    padding: 0px;
+}
+    </style>
+</head>
+<body>
+    <div class="div_bloak_stings">
+        <p class="main_text_p">New version</p>
+        <p>Sound_panel</p>
+        <br>
+        <p>The kernel has been changed to a more optimized one, all functions have been improved. Added timeline and manipulations with it. Optimized sound manipulation.</p>
+    </div>
+    <br>
+    <div class="div_bloak_stings">
+        <p class="main_text_p">Microphone virtual index</p>
+        <p>Index</p>
+        <br>
+        <form class="form" id="myForm_index">
+            <label class="tetx_label" for="textInput">Specify the microphone index:</label><br>
+            <input class="input_class" type="text" id="textInput_p" name="textInput">
+            <input class="muttotn_sib" type="submit" value="Send">
+        </form>
+
+        <script>
+            document.getElementById('myForm_index').addEventListener('submit', function(event) {
+                event.preventDefault(); 
+    
+                var textInput = document.getElementById('textInput_p').value;
+    
+                fetch('/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ textInput: textInput })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            });
+        </script>
+    </div>
+    <br>
+    <div class="div_bloak_stings">
+        <p class="main_text_p">Version</p>
+        <p>Version number</p>
+        <br>
+        <div id="version_app">
+
+        </div>
+    </div>
+    <br>
+    <div class="div_bloak_stings">
+        <p class="main_text_p">Sound_panel</p>
+        <p>Article!</p>
+        <br>
+        <p>Sound_panel is an intuitive and user-friendly application designed to manage and play various sound files. The primary objective of the program is to provide an easy-to-use interface for users to interact with audio files, making it ideal for use in presentations, live events, or personal enjoyment.</p>
+    </div>
+    <br>
+    <div class="div_bloak_stings">
+        <p class="main_text_p">Article</p>
+        <p>Article!</p>
+        <br>
+        <p>discord</p>
+    </div>
+</body>
+<script src="/static/js/global.js"></script>
+<script src="/static/js/funcrion.js"></script>
+</html>
+<script>
+    let type_xh = JSON.parse("{{ json_app_setings['version_sound']['vers'] }}");
+    color_b_type(type_xh);
+    let json = JSON.parse('{{ json_version_app | tojson | safe }}');
+
+    var appsContainer = document.getElementById('version_app');
+
+function my_pack(){
+for (var app in json) {
+    if (json.hasOwnProperty(app)) {
+        var appData = json[app];
+
+
+        var appHtml = `
+            <p class="version">${appData.verison}</p>
+        `;
+
+        appsContainer.insertAdjacentHTML('beforeend', appHtml);
+    }
+}
+}
+
+my_pack();
+</script>
+<script>
+    let code = {{ json_app_setings['divase']['micro'] | safe }};
+    document.getElementById('textInput_p').value = code;
+</script>

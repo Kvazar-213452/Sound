@@ -1,0 +1,17 @@
+{
+    "divase": {
+        "micro": 6,
+        "headph": null
+    },
+    "start": {
+        "number": 1,
+        "install_exe": "virtual_audio_cable_v4.67.exe"
+    },
+    "version_sound": {
+        "vers": 20
+    },
+    "core": {
+        "version": 5
+    },
+    "Created": "Article Kvazar"
+}

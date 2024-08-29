@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+    {{ json_add['font'] | safe }}
+    {{ json_add['css'] | safe }}
+</head>
+<style>
+    p{
+margin: 0px;
+padding: 0px;
+}
+</style>
+<body>
+<div class="install padding">
+    <p class="p_indtall_2">Finish</p>
+    <br>
+    <p>Everything you can install, you can now use the program</p>
+    <br>
+    <p>A virtual microphone was found under the index <span class="color_red">{{json_app['divase']['micro']}}</span></p>
+    <br>
+    <div class="disvase">
+        <span class="color_gren fon_size91">All your devices:</span>
+        <br>
+        <div id="divase">
+
+        </div>
+    </div>
+    <br><br>
+    <button onclick="end()" class="button_install">Finish</button>
+</div>
+</body>
+<script>
+    var divases = {{ divases | tojson }}; 
+    function end() {
+        window.location.href = '/';
+    }
+
+    var appsContainer = document.getElementById('divase');
+
+    function my_pack() {
+        for (var i = 0; i < divases.length; i++) {
+            var divasData = divases[i];
+
+            var divasHtml = `
+                <p class="divase_o">${divasData.divase}</p>
+            `;
+
+            appsContainer.insertAdjacentHTML('beforeend', divasHtml);
+        }
+    }
+
+    my_pack();
+</script>
+</html>
